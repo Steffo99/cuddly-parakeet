@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
         {
             if (contactPoints[i].collider.gameObject.tag == "Ground")
             {
-                Debug.Log("grounded");
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     rb.velocity = Vector2.up * jumpForce;
