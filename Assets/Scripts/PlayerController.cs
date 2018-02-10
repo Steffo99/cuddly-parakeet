@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float fallMultiplier;
     public float lowJumpMultiplier;
+    public float sideVelocity;
 
     Rigidbody2D rb;
     ContactPoint2D[] contactPoints;
@@ -31,10 +32,19 @@ public class PlayerController : MonoBehaviour {
         }
         if (rb.velocity.y < 0){
             rb.velocity += Vector2.up * Physics2D.gravity.y*(fallMultiplier - 1) * Time.deltaTime;
-        } else if (rb.velocity.y>0 && !Input.GetKey(KeyCode.Space))
-        {
+        } else if (rb.velocity.y>0 && !Input.GetKey(KeyCode.Space)){
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-	}
+        if (Input.GetKey(KeyCode.D)){
+            Movement(1);
+        }
+        if (Input.GetKey(KeyCode.A)){
+            Movement(-1);
+        }
+    }
+    void Movement (int dir)//1 = righ, -1 = left
+    {
+        rb.velocity = new Vector2(1 * dir * sideVelocity, rb.velocity.y);
+    }
 }
