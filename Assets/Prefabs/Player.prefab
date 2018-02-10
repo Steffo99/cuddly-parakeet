@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a33bddee9903ad4283d6f42b42addd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 93.03
-  maxJumpIncrease: 15
+  jumpForce: 5
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!212 &212207875326168472
 SpriteRenderer:
   m_ObjectHideFlags: 1
